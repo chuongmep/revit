@@ -27,12 +27,11 @@ namespace AMEE_in_Revit.Addin.CO2eParameter
                     if (!element.ParametersMap.Contains("CO2e")) continue;
 
                     double totalElementCO2e = 0;
-                    var materialSetIterator = element.Materials.ForwardIterator();
-                    while (materialSetIterator.MoveNext())
+                    ICollection<ElementId> materialSetIterator = element.GetMaterialIds(false);
+                    foreach (ElementId id in materialSetIterator)
                     {
-                        var material = (Material)materialSetIterator.Current;
-                 
-                        var volumeInM3 = element.GetMaterialVolume(material);
+                        Element material = element.Document.GetElement(id);
+                        var volumeInM3 = element.GetMaterialVolume(id);
                         materialKey = material.Id + ":" + material.Name;
 
                         var ameeMaterial = _materialMapper.GetMaterialDataItem(materialKey);

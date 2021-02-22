@@ -52,8 +52,10 @@ namespace AMEE_in_Revit.Addin.CO2eParameter
 
         private Definition OpenDefinition(string parameterName, ParameterType parameterType, DefinitionGroup definitionGroup)
         {
+            ExternalDefinitionCreationOptions option =
+                new ExternalDefinitionCreationOptions(parameterName, parameterType);
             var definition = definitionGroup.Definitions.get_Item(parameterName)
-                                 ?? definitionGroup.Definitions.Create(parameterName, parameterType, true);
+                             ?? definitionGroup.Definitions.Create(option);
             return definition;
         }
 

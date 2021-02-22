@@ -3,6 +3,12 @@
 Thumbs.db
 #Ignore files build by Visual Studio
 *.obj
+*.lock
+*.db.lock
+*.ide-wal
+*.ide-shm
+*.db.lock
+*.ide
 *.exe
 *.pdb
 *.user

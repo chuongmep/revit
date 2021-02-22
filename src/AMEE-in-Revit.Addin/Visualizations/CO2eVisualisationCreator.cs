@@ -74,7 +74,7 @@ namespace AMEE_in_Revit.Addin.Visualizations
             var geomElem = element.get_Geometry(options);
             if (geomElem != null)
             {
-                foreach (GeometryObject geomObj in geomElem.Objects)
+                foreach (GeometryObject geomObj in geomElem)
                 {
                     var solid = geomObj as Solid;
                     if (solid != null)
@@ -87,7 +87,7 @@ namespace AMEE_in_Revit.Addin.Visualizations
                     var inst = geomObj as GeometryInstance;
                     if (inst != null) // in-place family walls
                     {
-                        foreach (Object o in inst.SymbolGeometry.Objects)
+                        foreach (Object o in inst.SymbolGeometry)
                         {
                             var s = o as Solid;
                             if (s != null)

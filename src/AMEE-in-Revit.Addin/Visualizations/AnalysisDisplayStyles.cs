@@ -52,11 +52,11 @@ namespace AMEE_in_Revit.Addin.Visualizations
                                    select element;
           
                 // if LegendText exists, use it for this Display Style
-                if (textElements.Count() > 0)
+                if (textElements.Any())
                 {
-                    var textType =
-                        textElements.Cast<TextNoteType>().ElementAt(0);
-                    legendSettings.SetTextTypeId(textType.Id, view.Document);
+                    //TextNoteType textType =
+                    //    textElements.Cast<TextNoteType>().ElementAt(0);
+                    //legendSettings.SetTextTypeId(textType.Id, view.Document);
                 }
                 analysisDisplayStyle = AnalysisDisplayStyle.CreateAnalysisDisplayStyle(view.Document,
                                                                                        "CO2e Display Style 1", coloredSurfaceSettings, colorSettings, legendSettings);

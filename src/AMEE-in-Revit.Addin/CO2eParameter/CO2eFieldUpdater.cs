@@ -31,7 +31,7 @@ namespace AMEE_in_Revit.Addin.CO2eParameter
             elementIds.AddRange(data.GetModifiedElementIds());
 
             Settings.GetCO2eCalculator().UpdateElementCO2eParameters(
-                elementIds.Select(doc.get_Element).ToList());
+                elementIds.Select(x=>doc.GetElement(x)).ToList());
         }
 
         public static void CreateAndRegister(AddInId addinId)
